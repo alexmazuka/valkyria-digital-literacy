@@ -115,9 +115,9 @@ if (sim){
   const show = i => steps.forEach((s,k) => s.hidden = k !== i);
   sim.querySelectorAll('[data-next]').forEach(btn => {
     btn.onclick = () => {
-      // на кроці з пін-кодом вимагаємо 4 цифри
+      // на кроці з пін-кодом вимагаємо 5 цифр (як у справжньому Дія.Підписі)
       const pin = steps[cur].querySelector('.pin-in');
-      if (pin && pin.value.replace(/\D/g,'').length < 4){ pin.style.borderColor = 'var(--err)'; return; }
+      if (pin && pin.value.replace(/\D/g,'').length < 5){ pin.style.borderColor = 'var(--err)'; return; }
       cur++;
       show(cur);
       if (cur === steps.length - 1){ restart.hidden = false; markDone(ex.dataset.ex); }
