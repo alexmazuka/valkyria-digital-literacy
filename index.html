@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Українська Валькірія · Школа цифрової грамотності для жінок-ВПО</title>
+<meta name="description" content="Інтерактивна лекція для жінок — внутрішньо переміщених осіб: Дія, ЕЦП, електронні послуги, соцвиплати та житлові субсидії онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ПРОГРЕС-БАР -->
+<div id="scroll-progress"></div>
+
+<!-- БІЧНЕ МЕНЮ -->
+<aside id="sidebar">
+  <div class="brand">
+    <div class="brand-mark">⚔️</div>
+    <div>
+      <div class="brand-title">Українська<br>Валькірія</div>
+      <div class="brand-sub">Школа цифрової грамотності</div>
+    </div>
+  </div>
+
+  <div class="lesson-timer">
+    <div class="timer-label">⏱ Таймер лекції (60 хв)</div>
+    <div class="timer-display" id="timer">00:00 / 60:00</div>
+    <div class="timer-buttons">
+      <button id="timer-start">▶ Старт</button>
+      <button id="timer-pause">⏸ Пауза</button>
+      <button id="timer-reset">↺ Скинути</button>
+    </div>
+  </div>
+
+  <nav id="toc">
+    <a href="#intro" class="toc-link"><span class="toc-time">5′</span> Вступ · Хто така Валькірія</a>
+    <a href="#m1" class="toc-link"><span class="toc-time">15′</span> Модуль 1 · Дія</a>
+    <a href="#m1-2" class="toc-link toc-sub"><span class="toc-time">10′</span> 1.2 · ЕЦП / КЕП</a>
+    <a href="#m2-1" class="toc-link"><span class="toc-time">10′</span> 2.1 · Е-послуги для ВПО</a>
+    <a href="#m2-2" class="toc-link"><span class="toc-time">15′</span> 2.2 · Соцвиплати · Субсидії · Допомога</a>
+    <a href="#practice" class="toc-link"><span class="toc-time">5′</span> Практикум · Підсумок</a>
+    <a href="#resources" class="toc-link">📚 Ресурси й література</a>
+    <a href="#laws" class="toc-link">⚖️ Законодавство</a>
+    <a href="#ngo" class="toc-link">🤝 Ініціативи для жінок</a>
+  </nav>
+
+  <div class="progress-card">
+    <div class="progress-title">Мій прогрес</div>
+    <div class="progress-track"><div id="progress-fill"></div></div>
+    <div class="progress-num"><span id="progress-count">0</span> / <span id="progress-total">0</span> завдань</div>
+  </div>
+</aside>
+
+<button id="menu-toggle" aria-label="Меню">☰</button>
+
+<main id="content">
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-badge">Модуль 1–2 · Рівень «Впевнений старт»</div>
+  <h1>Цифрова грамотність для жінок — внутрішньо переміщених осіб</h1>
+  <p class="hero-lead">Одна година, після якої державні послуги працюють <b>на вас</b>, а не проти вас. Дія, електронний підпис, соцвиплати та субсидії — крок за кроком, без черг і без страху.</p>
+  <div class="hero-meta">
+    <span>🕐 60 хвилин</span>
+    <span>📱 Смартфон + «Дія»</span>
+    <span>🎯 8 інтерактивних вправ</span>
+    <span>🇺🇦 Українською</span>
+  </div>
+</header>
+
+<!-- ========== ВСТУП ========== -->
+<section id="intro" class="module">
+  <div class="module-head">
+    <span class="module-kicker">Вступ · 5 хвилин</span>
+    <h2>Що робить «Українська Валькірія» для жінок-переселенок</h2>
+  </div>
+
+  <p><b>Валькірія</b> — у давніх переказах воїтелька, яка супроводжує й захищає. Наша «Українська Валькірія» — це спільнота й школа, де жінка, яка втратила дім, знову відчуває опору під ногами. Ми не даємо «рибу» — ми вчимо вудити: показуємо, як самостійно керувати своїм життям через державні цифрові інструменти.</p>
+
+  <div class="cards-3">
+    <div class="mini-card">
+      <div class="mini-ico">🛡️</div>
+      <h4>Захищаємо права</h4>
+      <p>Пояснюємо, які виплати, субсидії та послуги належать саме вам як ВПО — і як їх отримати без посередників.</p>
+    </div>
+    <div class="mini-card">
+      <div class="mini-ico">💻</div>
+      <h4>Навчаємо цифрі</h4>
+      <p>Від встановлення «Дії» до електронного підпису й подачі заяв онлайн. Крок за кроком, у вашому темпі.</p>
+    </div>
+    <div class="mini-card">
+      <div class="mini-ico">🤝</div>
+      <h4>Даємо спільноту</h4>
+      <p>Поруч жінки з подібним досвідом, менторки та юристки. Ви не самі — і це головне.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-warm">
+    <b>Наша обіцянка на сьогодні:</b> за 60 хвилин ви навчитеся робити своїми руками те, за що досі платили посередникам або на що витрачали дні в чергах — оформити довідку ВПО, підписати документ електронно, подати на виплату й субсидію.
+  </div>
+
+  <div class="exercise" data-ex="warmup">
+    <div class="ex-tag">🔥 Розминка · опитування</div>
+    <h4>Наскільки вам зараз комфортно з державними сервісами онлайн?</h4>
+    <div class="poll">
+      <button class="poll-opt" data-v="1">😰 Ніколи не пробувала</button>
+      <button class="poll-opt" data-v="2">🙂 Дещо вмію</button>
+      <button class="poll-opt" data-v="3">💪 Впевнена користувачка</button>
+    </div>
+    <p class="ex-feedback" hidden>Чудово, що ви чесні із собою. Наприкінці лекції поверніться сюди — і ви побачите, як зміниться ваша відповідь. Поїхали! 🚀</p>
+  </div>
+</section>
+
+<!-- ========== МОДУЛЬ 1: ДІЯ ========== -->
+<section id="m1" class="module">
+  <div class="module-head">
+    <span class="module-kicker">Модуль 1 · 15 хвилин</span>
+    <h2>«Дія»: держава у вашому смартфоні</h2>
+  </div>
+
+  <p><b>«Дія»</b> (Держава і Я) — це офіційний застосунок і вебпортал України, де зберігаються ваші цифрові документи й доступні понад сотню державних послуг. Це не приватний додаток і не «сумнівна програма» — його розробило <b>Міністерство цифрової трансформації України</b>.</p>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h4>📱 Застосунок «Дія»</h4>
+      <p>Встановлюється на смартфон. Тут — ваші цифрові документи та підпис. Завантажуйте <b>тільки</b> з офіційних магазинів:</p>
+      <ul class="link-list">
+        <li><a href="https://apps.apple.com/ua/app/id1489717872" target="_blank" rel="noopener">App Store (iPhone) →</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=ua.gov.diia.app" target="_blank" rel="noopener">Google Play (Android) →</a></li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>🖥️ Портал «Дія»</h4>
+      <p>Відкривається у браузері на комп'ютері чи телефоні. Тут зручно подавати заяви й отримувати послуги:</p>
+      <ul class="link-list">
+        <li><a href="https://diia.gov.ua" target="_blank" rel="noopener">diia.gov.ua →</a></li>
+        <li><a href="https://osvita.diia.gov.ua" target="_blank" rel="noopener">Дія.Освіта — безкоштовні курси →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Які документи «живуть» у «Дії»</h3>
+  <p>Цифровий документ у «Дії» має таку саму юридичну силу, як і паперовий (стаття закону про Єдиний держреєстр). Ви можете показувати їх поліції, у банку, на пошті, у лікарні:</p>
+  <div class="doc-grid">
+    <span class="doc-chip">🪪 Паспорт громадянина (ID)</span>
+    <span class="doc-chip">✈️ Закордонний паспорт</span>
+    <span class="doc-chip">🔢 Код РНОКПП (ІПН)</span>
+    <span class="doc-chip">🏠 Довідка ВПО</span>
+    <span class="doc-chip">🚗 Посвідчення водія</span>
+    <span class="doc-chip">📗 Техпаспорт авто</span>
+    <span class="doc-chip">👶 Свідоцтва дітей</span>
+    <span class="doc-chip">🎓 Студентський квиток</span>
+    <span class="doc-chip">💳 Дія.Картка</span>
+    <span class="doc-chip">🩺 Е-лікарняний</span>
+  </div>
+
+  <h3>Перша реєстрація в «Дії» — 4 кроки</h3>
+  <ol class="steps">
+    <li><b>Встановіть застосунок</b> з App Store або Google Play.</li>
+    <li><b>Підтвердьте особу</b> через ваш банк (BankID): Приватбанк, monobank, Ощадбанк, ПУМБ тощо — оберіть той, де у вас є онлайн-банк.</li>
+    <li><b>Придумайте 4-значний код</b> для входу (або увімкніть вхід за відбитком / Face ID).</li>
+    <li><b>Готово!</b> Документи підвантажаться автоматично з державних реєстрів.</li>
+  </ol>
+
+  <div class="callout callout-tip">
+    <b>Порада безпеки 🔐:</b> ніколи не показуйте свій код входу стороннім і не встановлюйте «Дію» за посиланням із SMS чи месенджера. Тільки офіційні магазини застосунків. Держава ніколи не просить код у телефонній розмові.
+  </div>
+
+  <div class="exercise" data-ex="q-diia">
+    <div class="ex-tag">✅ Вправа 1 · перевір себе</div>
+    <h4>Що з переліку — правда про «Дію»?</h4>
+    <div class="quiz" data-correct="b">
+      <button class="quiz-opt" data-k="a">Цифровий паспорт у «Дії» не має юридичної сили, це лише картинка.</button>
+      <button class="quiz-opt" data-k="b">Цифрові документи у «Дії» юридично рівні паперовим.</button>
+      <button class="quiz-opt" data-k="c">«Дію» можна встановлювати за будь-яким посиланням з SMS.</button>
+    </div>
+    <p class="ex-feedback" hidden></p>
+  </div>
+</section>
+
+<!-- ========== 1.2 ЕЦП ========== -->
+<section id="m1-2" class="module">
+  <div class="module-head">
+    <span class="module-kicker">Модуль 1.2 · 10 хвилин</span>
+    <h2>ЕЦП / КЕП: ваш електронний підпис</h2>
+  </div>
+
+  <p>Щоб <b>підписати заяву онлайн</b> — на виплату, субсидію, довідку — потрібен електронний підпис. Раніше його називали <b>ЕЦП</b> (електронний цифровий підпис). За чинним законом «Про електронні довірчі послуги» правильна назва — <b>КЕП</b> (кваліфікований електронний підпис). Це ваш «цифровий розчерк пера»: він підтверджує, що документ підписали саме ви, і має повну юридичну силу.</p>
+
+  <div class="two-col">
+    <div class="info-block accent">
+      <h4>⭐ Найпростіший спосіб: Дія.Підпис (Дія.Signature)</h4>
+      <p>Це мобільний підпис <b>усередині застосунку «Дія»</b>. Не треба нічого встановлювати додатково — він активується автоматично, коли ви зареєстровані. Підписуєте документ кодом або відбитком пальця.</p>
+      <p class="tiny">Умова: у вас є ID-картка або біометричний закордонний паспорт.</p>
+    </div>
+    <div class="info-block">
+      <h4>🏦 Через банк</h4>
+      <p>КЕП безкоштовно видають онлайн-банки: <b>ПриватБанк</b> (у «Приват24» → «Всі послуги» → «Бізнес» → «Завантажити сертифікат»), <b>monobank</b>, <b>Ощадбанк</b>, <b>ПУМБ</b>. Отримуєте файл-ключ і пароль до нього.</p>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h4>🏛️ Через кваліфікованого надавача (АЦСК)</h4>
+    <p>Якщо немає ані «Дії», ані онлайн-банку — зверніться до кваліфікованого надавача електронних довірчих послуг. Перелік і контакти:</p>
+    <ul class="link-list">
+      <li><a href="https://czo.gov.ua/ca-registry" target="_blank" rel="noopener">Реєстр надавачів (Центральний засвідчувальний орган) →</a></li>
+      <li><a href="https://ca.diia.gov.ua" target="_blank" rel="noopener">Кваліфікований надавач «Дія» →</a></li>
+      <li><a href="https://acskidd.gov.ua" target="_blank" rel="noopener">АЦСК ІДД ДПС (податкова) →</a></li>
+    </ul>
+  </div>
+
+  <h3>Симулятор: підписуємо документ через Дія.Підпис</h3>
+  <p>Пройдіть тренувальні кроки — це безпечно, жодних реальних даних не потрібно.</p>
+  <div class="exercise" data-ex="sim-sign">
+    <div class="ex-tag">🎮 Вправа 2 · симулятор</div>
+    <div class="sim" id="sim-sign">
+      <div class="sim-screen">
+        <div class="sim-step" data-step="0">
+          <div class="phone-ui">
+            <p>📄 Заява на допомогу на проживання ВПО</p>
+            <button class="sim-btn" data-next>Підписати</button>
+          </div>
+        </div>
+        <div class="sim-step" data-step="1" hidden>
+          <div class="phone-ui">
+            <p>Оберіть спосіб підпису:</p>
+            <button class="sim-btn" data-next>⭐ Дія.Підпис</button>
+          </div>
+        </div>
+        <div class="sim-step" data-step="2" hidden>
+          <div class="phone-ui">
+            <p>🔢 Введіть код підпису</p>
+            <div class="pin-pad">
+              <input maxlength="4" placeholder="••••" inputmode="numeric" class="pin-in">
+            </div>
+            <button class="sim-btn" data-next>Підтвердити</button>
+          </div>
+        </div>
+        <div class="sim-step" data-step="3" hidden>
+          <div class="phone-ui success">
+            <p>✅ Документ підписано!</p>
+            <p class="tiny">Заяву надіслано. У реальному житті ви отримаєте повідомлення про статус у «Дії».</p>
+          </div>
+        </div>
+      </div>
+      <button class="sim-restart" hidden>↺ Пройти ще раз</button>
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <b>⚠️ Найважливіше правило:</b> файл-ключ КЕП і пароль до нього — це як ключі від сейфа. Ніколи не передавайте їх іншим людям, не надсилайте у месенджерах і не диктуйте телефоном. Хто має ваш підпис — може діяти від вашого імені.
+  </div>
+</section>
+
+<!-- ========== 2.1 Е-ПОСЛУГИ ВПО ========== -->
+<section id="m2-1" class="module">
+  <div class="module-head">
+    <span class="module-kicker">Модуль 2.1 · 10 хвилин</span>
+    <h2>Електронні послуги для ВПО</h2>
+  </div>
+
+  <p>Статус <b>внутрішньо переміщеної особи</b> — це ваше право, закріплене Законом України «Про забезпечення прав і свобод ВПО». Він відкриває доступ до виплат, субсидій, спрощеного працевлаштування, медичних і освітніх послуг. Більшість дій із цим статусом сьогодні можна зробити онлайн.</p>
+
+  <h3>Довідка ВПО: що це і де вона</h3>
+  <ul class="feature-list">
+    <li><b>Цифрова довідка ВПО</b> автоматично з'являється у застосунку «Дія», якщо ви взяті на облік. Її можна показати на екрані або згенерувати PDF.</li>
+    <li><b>Взяття на облік / оновлення даних</b> — через центр надання адмінпослуг (ЦНАП), орган соцзахисту або портал. Дедалі більше дій доступні дистанційно.</li>
+    <li><b>Зміна адреси фактичного проживання</b> оновлюється, коли ви переїжджаєте, — це впливає на виплати.</li>
+  </ul>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h4>🔑 Ключові онлайн-портали ВПО</h4>
+      <ul class="link-list">
+        <li><a href="https://diia.gov.ua" target="_blank" rel="noopener">Дія — довідка та статус ВПО →</a></li>
+        <li><a href="https://portal.pfu.gov.ua" target="_blank" rel="noopener">Портал Пенсійного фонду України →</a></li>
+        <li><a href="https://edopomoga.gov.ua" target="_blank" rel="noopener">єДопомога — платформа допомоги →</a></li>
+        <li><a href="https://socpol.diia.gov.ua" target="_blank" rel="noopener">Соціальні послуги на порталі «Дія» →</a></li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>📞 Гарячі лінії (безкоштовно)</h4>
+      <ul class="feature-list tight">
+        <li><b>1545</b> — Урядова гаряча лінія (соцпитання, виплати)</li>
+        <li><b>1539</b> — гаряча лінія Пенсійного фонду</li>
+        <li><b>15-47</b> — протидія торгівлі людьми та домашньому насильству</li>
+        <li><b>0 800 500 335</b> — «Ла Страда», допомога жінкам</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-tip">
+    <b>Порада:</b> тримайте у «Дії» актуальними свій РНОКПП, банківські реквізити (Дія.Картку) та адресу проживання. Саме через ці дані держава «бачить» вас і нараховує виплати.
+  </div>
+
+  <div class="exercise" data-ex="q-vpo">
+    <div class="ex-tag">✅ Вправа 3 · перевір себе</div>
+    <h4>Де найшвидше показати довідку ВПО, якщо її просять?</h4>
+    <div class="quiz" data-correct="c">
+      <button class="quiz-opt" data-k="a">Треба їхати в інше місто по паперову копію.</button>
+      <button class="quiz-opt" data-k="b">Ніде — довідки ВПО онлайн не існує.</button>
+      <button class="quiz-opt" data-k="c">У застосунку «Дія» — цифрова довідка ВПО на екрані телефону.</button>
+    </div>
+    <p class="ex-feedback" hidden></p>
+  </div>
+</section>
+
+<!-- ========== 2.2 СОЦВИПЛАТИ, СУБСИДІЇ ========== -->
+<section id="m2-2" class="module">
+  <div class="module-head">
+    <span class="module-kicker">Модуль 2.2 · 15 хвилин · Ключовий блок</span>
+    <h2>Соцвиплати, житлові субсидії та допомога ВПО онлайн</h2>
+  </div>
+
+  <p>Це найпрактичніша частина. Розберемо три головні напрями фінансової підтримки, які жінка-ВПО може оформити самостійно з телефону.</p>
+
+  <!-- 1 -->
+  <div class="pay-block">
+    <h3>1. Допомога на проживання ВПО</h3>
+    <p>Щомісячна грошова допомога для внутрішньо переміщених осіб. Розмір і умови встановлює Кабінет Міністрів і вони періодично переглядаються — <b>завжди звіряйте актуальну суму</b> на офіційних ресурсах.</p>
+    <div class="fact-row">
+      <div class="fact"><span class="fact-n">Орієнтовно</span><span class="fact-l">2 000 грн — дорослим працездатним</span></div>
+      <div class="fact"><span class="fact-n">Орієнтовно</span><span class="fact-l">3 000 грн — дітям та особам з інвалідністю</span></div>
+    </div>
+    <p><b>Як подати:</b></p>
+    <ul class="feature-list">
+      <li>через застосунок / портал <a href="https://diia.gov.ua" target="_blank" rel="noopener">«Дія»</a> (послуга «Допомога на проживання ВПО»),</li>
+      <li>через <a href="https://portal.pfu.gov.ua" target="_blank" rel="noopener">портал Пенсійного фонду</a>,</li>
+      <li>або особисто в органі соцзахисту / ЦНАП.</li>
+    </ul>
+    <p class="tiny">Підстава: Постанова КМУ № 332 від 20.03.2022 (зі змінами) про виплату допомоги на проживання ВПО.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="pay-block">
+    <h3>2. Житлова субсидія</h3>
+    <p>Держава частково компенсує оплату житлово-комунальних послуг, якщо витрати перевищують посильну для родини частку доходу. ВПО можуть оформити субсидію за фактичним місцем проживання (навіть на орендоване житло — за наявності договору).</p>
+    <p><b>Як подати онлайн:</b></p>
+    <ul class="feature-list">
+      <li><a href="https://portal.pfu.gov.ua" target="_blank" rel="noopener">Портал Пенсійного фонду</a> → «Звернення за призначенням субсидії» (потрібен вхід за КЕП / Дія.Підпис),</li>
+      <li>через <a href="https://diia.gov.ua" target="_blank" rel="noopener">«Дію»</a>,</li>
+      <li>заповнюєте заяву + декларацію про доходи й майновий стан.</li>
+    </ul>
+    <div class="callout callout-tip">
+      <b>Що підготувати:</b> склад сім'ї, приблизні доходи всіх членів родини за останні місяці, реквізити рахунку, дані про житло (площа, договір оренди).
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="pay-block">
+    <h3>3. Інша допомога ВПО онлайн</h3>
+    <div class="cards-3">
+      <div class="mini-card">
+        <div class="mini-ico">🏗️</div>
+        <h4>єВідновлення</h4>
+        <p>Компенсація за пошкоджене чи знищене житло. Заява — через «Дію».</p>
+        <a href="https://diia.gov.ua" target="_blank" rel="noopener" class="mini-link">Подати в «Дії» →</a>
+      </div>
+      <div class="mini-card">
+        <div class="mini-ico">🤲</div>
+        <h4>єДопомога</h4>
+        <p>Платформа для отримання допомоги від держави, партнерів і міжнародних організацій.</p>
+        <a href="https://edopomoga.gov.ua" target="_blank" rel="noopener" class="mini-link">edopomoga.gov.ua →</a>
+      </div>
+      <div class="mini-card">
+        <div class="mini-ico">🌍</div>
+        <h4>Допомога ООН / партнерів</h4>
+        <p>Грошова допомога від УВКБ ООН, ЮНІСЕФ, ЧХ — часто через реєстрацію онлайн.</p>
+        <a href="https://prytulok.unhcr.org.ua" target="_blank" rel="noopener" class="mini-link">Портал УВКБ ООН →</a>
+      </div>
+    </div>
+  </div>
+
+  <h3>Покроковий помічник: оформлюємо виплату</h3>
+  <div class="exercise" data-ex="sim-pay">
+    <div class="ex-tag">🎮 Вправа 4 · інтерактивний чек-лист подачі</div>
+    <p>Відмічайте кроки — прогрес зберігається у вашому браузері.</p>
+    <div class="checklist" data-key="pay-steps">
+      <label class="check-item"><input type="checkbox"><span>Встановлено «Дію» і підтверджено особу</span></label>
+      <label class="check-item"><input type="checkbox"><span>Активовано Дія.Підпис або отримано КЕП</span></label>
+      <label class="check-item"><input type="checkbox"><span>Перевірено, що статус ВПО актуальний</span></label>
+      <label class="check-item"><input type="checkbox"><span>Оформлено Дія.Картку / вказано реквізити рахунку</span></label>
+      <label class="check-item"><input type="checkbox"><span>Знайдено потрібну послугу (виплата / субсидія)</span></label>
+      <label class="check-item"><input type="checkbox"><span>Заповнено заяву та підписано електронно</span></label>
+      <label class="check-item"><input type="checkbox"><span>Збережено номер звернення для відстеження</span></label>
+    </div>
+    <p class="ex-feedback" hidden>🎉 Ви пройшли повний маршрут оформлення виплати! Тепер це — ваша навичка назавжди.</p>
+  </div>
+
+  <div class="exercise" data-ex="q-pay">
+    <div class="ex-tag">✅ Вправа 5 · перевір себе</div>
+    <h4>Через який портал зручно подати заяву на житлову субсидію онлайн?</h4>
+    <div class="quiz" data-correct="b">
+      <button class="quiz-opt" data-k="a">Через будь-який комерційний сайт оголошень.</button>
+      <button class="quiz-opt" data-k="b">Через портал Пенсійного фонду (portal.pfu.gov.ua) або «Дію».</button>
+      <button class="quiz-opt" data-k="c">Субсидію онлайн подати неможливо взагалі.</button>
+    </div>
+    <p class="ex-feedback" hidden></p>
+  </div>
+</section>
+
+<!-- ========== ПРАКТИКУМ ========== -->
+<section id="practice" class="module">
+  <div class="module-head">
+    <span class="module-kicker">Практикум · 5 хвилин</span>
+    <h2>Закріплення й підсумок</h2>
+  </div>
+
+  <h3>Мій цифровий набір ВПО — фінальний чек-лист</h3>
+  <p>Це ваш «рюкзак цифрової самостійності». Відмітьте те, що вже є, і візьміть за ціль решту.</p>
+  <div class="exercise" data-ex="kit">
+    <div class="ex-tag">🎒 Вправа 6 · особистий чек-лист</div>
+    <div class="checklist" data-key="digital-kit">
+      <label class="check-item"><input type="checkbox"><span>Застосунок «Дія» встановлено й працює</span></label>
+      <label class="check-item"><input type="checkbox"><span>Я вмію відкрити свій цифровий паспорт і РНОКПП</span></label>
+      <label class="check-item"><input type="checkbox"><span>Активовано Дія.Підпис / є КЕП</span></label>
+      <label class="check-item"><input type="checkbox"><span>Я знаю, де моя довідка ВПО</span></label>
+      <label class="check-item"><input type="checkbox"><span>Я знаю портали: diia.gov.ua, portal.pfu.gov.ua, edopomoga.gov.ua</span></label>
+      <label class="check-item"><input type="checkbox"><span>Я записала гарячу лінію 1545</span></label>
+      <label class="check-item"><input type="checkbox"><span>Я вмію самостійно підписати й надіслати заяву</span></label>
+    </div>
+  </div>
+
+  <h3>Фінальний квіз</h3>
+  <div class="exercise" data-ex="q-final">
+    <div class="ex-tag">🏆 Вправа 7 · підсумковий квіз</div>
+    <h4>Як правильно й безпечно отримати електронний підпис?</h4>
+    <div class="quiz" data-correct="a">
+      <button class="quiz-opt" data-k="a">Через Дія.Підпис, свій онлайн-банк або кваліфікованого надавача.</button>
+      <button class="quiz-opt" data-k="b">Попросити знайомого прислати свій ключ і пароль.</button>
+      <button class="quiz-opt" data-k="c">Купити «готовий підпис» у незнайомця в месенджері.</button>
+    </div>
+    <p class="ex-feedback" hidden></p>
+  </div>
+
+  <div class="exercise" data-ex="reflect">
+    <div class="ex-tag">✍️ Вправа 8 · рефлексія</div>
+    <h4>Один крок, який я зроблю сьогодні</h4>
+    <p>Запишіть одну конкретну дію (напр.: «сьогодні активую Дія.Підпис»). Вона збережеться у вашому браузері як нагадування.</p>
+    <textarea id="reflect-input" placeholder="Мій наступний крок…"></textarea>
+    <button id="reflect-save" class="btn-primary">Зберегти намір</button>
+    <p class="ex-feedback" id="reflect-fb" hidden>Збережено 💜 Ви — сама собі Валькірія. Дійте!</p>
+  </div>
+
+  <div class="callout callout-warm big">
+    <b>Вітаємо!</b> Ви пройшли шлях від «боюся натиснути не туди» до «оформлю сама». Держслужби — це інструмент у ваших руках. Повертайтеся до цієї сторінки, коли треба освіжити кроки.
+  </div>
+</section>
+
+<!-- ========== РЕСУРСИ ========== -->
+<section id="resources" class="module ref">
+  <div class="module-head">
+    <span class="module-kicker">Довідник</span>
+    <h2>📚 Корисні ресурси й додаткова література</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h4>Офіційні державні сервіси</h4>
+      <ul class="link-list">
+        <li><a href="https://diia.gov.ua" target="_blank" rel="noopener">diia.gov.ua — портал «Дія»</a></li>
+        <li><a href="https://osvita.diia.gov.ua" target="_blank" rel="noopener">Дія.Освіта — безкоштовні курси цифрограмотності</a></li>
+        <li><a href="https://portal.pfu.gov.ua" target="_blank" rel="noopener">Портал Пенсійного фонду України</a></li>
+        <li><a href="https://edopomoga.gov.ua" target="_blank" rel="noopener">єДопомога</a></li>
+        <li><a href="https://www.msp.gov.ua" target="_blank" rel="noopener">Мінсоцполітики України</a></li>
+        <li><a href="https://ips.ligazakon.net" target="_blank" rel="noopener">Законодавство (LigaZakon)</a></li>
+        <li><a href="https://zakon.rada.gov.ua" target="_blank" rel="noopener">Офіційний портал «Законодавство України» (Рада)</a></li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>Навчання й довідка</h4>
+      <ul class="link-list">
+        <li><a href="https://osvita.diia.gov.ua/courses" target="_blank" rel="noopener">Курс «Цифрова грамотність для громадян»</a></li>
+        <li><a href="https://thedigital.gov.ua" target="_blank" rel="noopener">Мінцифра — новини сервісів</a></li>
+        <li><a href="https://r2p.org.ua" target="_blank" rel="noopener">«Право на захист» — юридична допомога ВПО</a></li>
+        <li><a href="https://vostok-sos.org" target="_blank" rel="noopener">«Восток SOS» — довідники для переселенців</a></li>
+        <li><a href="https://donbasssos.org" target="_blank" rel="noopener">«Донбас SOS» — гаряча лінія та консультації</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ЗАКОНОДАВСТВО ========== -->
+<section id="laws" class="module ref">
+  <div class="module-head">
+    <span class="module-kicker">Правова база</span>
+    <h2>⚖️ Законодавчі та нормативні акти</h2>
+  </div>
+  <p>Це ваша «зброя» в діалозі з органами влади. Знання того, на що ви маєте право, робить вас сильнішою.</p>
+  <div class="law-list">
+    <div class="law">
+      <div class="law-num">№ 1706-VII</div>
+      <div class="law-body">
+        <b>Закон України «Про забезпечення прав і свобод внутрішньо переміщених осіб»</b>
+        <p>Базовий закон: визначає, хто є ВПО, і які права та гарантії ви маєте.</p>
+        <a href="https://zakon.rada.gov.ua/laws/show/1706-18" target="_blank" rel="noopener">Читати текст →</a>
+      </div>
+    </div>
+    <div class="law">
+      <div class="law-num">№ 2155-VIII</div>
+      <div class="law-body">
+        <b>Закон України «Про електронні довірчі послуги»</b>
+        <p>Регулює електронний підпис (КЕП): юридична сила, правила використання.</p>
+        <a href="https://zakon.rada.gov.ua/laws/show/2155-19" target="_blank" rel="noopener">Читати текст →</a>
+      </div>
+    </div>
+    <div class="law">
+      <div class="law-num">ПКМУ № 332</div>
+      <div class="law-body">
+        <b>Постанова КМУ від 20.03.2022 «Про виплату допомоги на проживання ВПО»</b>
+        <p>Умови, розміри та порядок призначення щомісячної допомоги (зі змінами).</p>
+        <a href="https://zakon.rada.gov.ua/laws/show/332-2022-п" target="_blank" rel="noopener">Читати текст →</a>
+      </div>
+    </div>
+    <div class="law">
+      <div class="law-num">ПКМУ № 509</div>
+      <div class="law-body">
+        <b>Постанова КМУ «Про облік внутрішньо переміщених осіб»</b>
+        <p>Порядок взяття на облік, видача та скасування довідки ВПО.</p>
+        <a href="https://zakon.rada.gov.ua/laws/show/509-2014-п" target="_blank" rel="noopener">Читати текст →</a>
+      </div>
+    </div>
+    <div class="law">
+      <div class="law-num">ПКМУ № 381</div>
+      <div class="law-body">
+        <b>Постанова КМУ щодо компенсації за пошкоджене/знищене житло (єВідновлення)</b>
+        <p>Механізм отримання компенсації за майно, пошкоджене внаслідок бойових дій.</p>
+        <a href="https://zakon.rada.gov.ua/laws/show/381-2023-п" target="_blank" rel="noopener">Читати текст →</a>
+      </div>
+    </div>
+    <div class="law">
+      <div class="law-num">№ 5203-VI</div>
+      <div class="law-body">
+        <b>Закон України «Про адміністративні послуги»</b>
+        <p>Ваше право отримувати послуги якісно, без зайвих вимог і в розумні строки.</p>
+        <a href="https://zakon.rada.gov.ua/laws/show/5203-17" target="_blank" rel="noopener">Читати текст →</a>
+      </div>
+    </div>
+  </div>
+  <p class="tiny">⚠️ Суми виплат, строки та деталі процедур періодично змінюються. Перед подачею завжди звіряйте актуальну редакцію акта на zakon.rada.gov.ua або уточнюйте на гарячій лінії 1545.</p>
+</section>
+
+<!-- ========== НГО ========== -->
+<section id="ngo" class="module ref">
+  <div class="module-head">
+    <span class="module-kicker">Спільнота</span>
+    <h2>🤝 Громадські ініціативи та рухи для жінок-ВПО</h2>
+  </div>
+  <p>Ви не самі. Ці організації надають безкоштовну правову, психологічну та гуманітарну підтримку — багато з них зосереджені саме на жінках.</p>
+  <div class="ngo-grid">
+    <div class="ngo-card">
+      <h4>Право на захист (R2P)</h4>
+      <p>Безкоштовна правова допомога ВПО, супровід у виплатах і документах.</p>
+      <a href="https://r2p.org.ua" target="_blank" rel="noopener">r2p.org.ua →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>Ла Страда-Україна</h4>
+      <p>Захист прав жінок, протидія насильству. Гаряча лінія 0 800 500 335.</p>
+      <a href="https://la-strada.org.ua" target="_blank" rel="noopener">la-strada.org.ua →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>Український жіночий фонд</h4>
+      <p>Підтримка жіночих ініціатив, гранти й програми для жінок-переселенок.</p>
+      <a href="https://uwf.org.ua" target="_blank" rel="noopener">uwf.org.ua →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>Восток SOS</h4>
+      <p>Евакуація, гуманітарна та юридична допомога переселенцям.</p>
+      <a href="https://vostok-sos.org" target="_blank" rel="noopener">vostok-sos.org →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>Донбас SOS</h4>
+      <p>Консультації з питань статусу ВПО, виплат і відновлення документів.</p>
+      <a href="https://donbasssos.org" target="_blank" rel="noopener">donbasssos.org →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>Крим SOS</h4>
+      <p>Допомога переселенцям, адвокація прав ВПО.</p>
+      <a href="https://krymsos.com" target="_blank" rel="noopener">krymsos.com →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>NRC / DRC (Ради у справах біженців)</h4>
+      <p>Норвезька та Данська ради: грошова допомога, житло, правовий супровід.</p>
+      <a href="https://www.nrc.no/countries/europe/ukraine/" target="_blank" rel="noopener">nrc.no/ukraine →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>UN Women Ukraine</h4>
+      <p>Програми розширення прав і можливостей жінок, зокрема ВПО.</p>
+      <a href="https://ukraine.unwomen.org" target="_blank" rel="noopener">ukraine.unwomen.org →</a>
+    </div>
+    <div class="ngo-card">
+      <h4>УВКБ ООН (UNHCR)</h4>
+      <p>Захист і допомога переміщеним особам, грошові виплати.</p>
+      <a href="https://help.unhcr.org/ukraine/" target="_blank" rel="noopener">help.unhcr.org/ukraine →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p><b>Українська Валькірія</b> · Школа цифрової грамотності для жінок-ВПО</p>
+  <p class="tiny">Навчальний матеріал має інформаційний характер. Суми, строки й процедури звіряйте на офіційних ресурсах держави. © 2026</p>
+</footer>
+
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
